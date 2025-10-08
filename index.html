@@ -79,6 +79,7 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 5px;
         }
         
         nav ul {
@@ -307,20 +308,21 @@
         .month-indicator {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .month-badge {
             background: var(--primary);
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             font-size: 0.9rem;
+            flex-shrink: 0;
         }
         
         .accordion-header.active .month-badge {
@@ -330,6 +332,7 @@
         
         .accordion-icon {
             transition: transform 0.3s;
+            flex-shrink: 0;
         }
         
         .accordion-header.active .accordion-icon {
@@ -505,12 +508,14 @@
             background: linear-gradient(135deg, var(--secondary) 0%, #151d29 100%);
             color: white;
             padding: 3rem 0 1.5rem;
+            text-align: center;
         }
         
         .footer-content {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
         
         .footer-logo {
@@ -521,10 +526,16 @@
             font-family: 'Playfair Display', serif;
         }
         
+        .footer-content > p {
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+        }
+        
         .social-links {
             margin: 1.5rem 0;
             display: flex;
             gap: 1.2rem;
+            justify-content: center;
         }
         
         .social-links a {
@@ -545,6 +556,10 @@
             transform: translateY(-3px);
         }
         
+        .footer-contact {
+            margin-bottom: 1.5rem;
+        }
+        
         .copyright {
             margin-top: 1.5rem;
             text-align: center;
@@ -559,15 +574,16 @@
             }
             
             nav {
-                position: fixed;
-                top: 70px;
+                position: absolute;
+                top: 100%;
                 left: 0;
                 width: 100%;
                 background: var(--secondary);
-                padding: 1rem;
+                padding: 0;
                 transform: translateY(-100%);
                 opacity: 0;
-                transition: all 0.3s;
+                visibility: hidden;
+                transition: all 0.3s ease;
                 z-index: 99;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             }
@@ -575,6 +591,7 @@
             nav.active {
                 transform: translateY(0);
                 opacity: 1;
+                visibility: visible;
             }
             
             nav ul {
@@ -589,8 +606,9 @@
             
             nav ul li a {
                 display: block;
-                padding: 0.8rem 1rem;
+                padding: 1rem 1.5rem;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
+                font-size: 1rem;
             }
             
             nav ul li:last-child a {
@@ -622,6 +640,16 @@
             .registration-form {
                 padding: 1.5rem;
             }
+            
+            .accordion-header {
+                padding: 1rem 1.2rem;
+            }
+            
+            .month-badge {
+                width: 30px;
+                height: 30px;
+                font-size: 0.85rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -646,8 +674,12 @@
             }
             
             .accordion-header {
-                padding: 1rem 1.2rem;
+                padding: 1rem;
                 font-size: 0.95rem;
+            }
+            
+            .month-indicator {
+                gap: 10px;
             }
             
             .month-badge {
@@ -658,6 +690,10 @@
             
             .price {
                 font-size: 2.2rem;
+            }
+            
+            .footer-logo {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -988,12 +1024,17 @@
         <div class="container footer-content">
             <div class="footer-logo">कलाshala</div>
             <p>Transform your creativity into a professional career</p>
+            <div class="footer-contact">
+                <p>Contact us: learnwithkalashala@gmail.com | +91 91462 10111</p>
+            </div>
             <div class="social-links">
                 <a href="https://www.instagram.com/learn_with_kalashala?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/919146210111" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p>Contact us: learnwithkalashala@gmail.com | +919146210111</p>
+            <div class="copyright">
+                <p>&copy; 2023 कलाshala. All rights reserved.</p>
             </div>
+        </div>
     </footer>
 
     <script>
@@ -1010,6 +1051,13 @@
             link.addEventListener('click', () => {
                 mainNav.classList.remove('active');
             });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && !e.target.closest('.mobile-menu-btn') && mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+            }
         });
         
         // Smooth scrolling for navigation links
@@ -1111,4 +1159,3 @@
     </script>
 </body>
 </html>
-
