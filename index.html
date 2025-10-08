@@ -36,7 +36,7 @@
         }
         
         .container {
-            width: 90%;
+            width: 92%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
@@ -51,18 +51,16 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: var(--primary);
             display: flex;
@@ -74,10 +72,18 @@
             font-family: 'Playfair Display', serif;
         }
         
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
-            flex-wrap: wrap;
         }
         
         nav ul li {
@@ -117,38 +123,25 @@
             background: linear-gradient(135deg, var(--secondary) 0%, #2a364a 100%);
             color: white;
             text-align: center;
-            padding: 5rem 0;
+            padding: 3rem 0;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d2ae35' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
         
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
             color: var(--primary);
-            line-height: 1.2;
+            line-height: 1.3;
         }
         
         .hero p {
-            font-size: 1.2rem;
-            margin: 0 auto 2.5rem;
+            font-size: 1rem;
+            margin: 0 auto 2rem;
             color: var(--accent);
             max-width: 700px;
         }
@@ -156,15 +149,15 @@
         .urgency-banner {
             background: linear-gradient(45deg, #e74c3c, #c0392b);
             color: white;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 30px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: bold;
             animation: pulse 2s infinite;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            font-size: 0.9rem;
         }
         
         @keyframes pulse {
@@ -177,50 +170,34 @@
             display: inline-block;
             background: linear-gradient(45deg, var(--primary), #e6c158);
             color: var(--secondary);
-            padding: 16px 35px;
+            padding: 14px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s;
-            box-shadow: 0 6px 20px rgba(210, 174, 53, 0.4);
+            box-shadow: 0 4px 15px rgba(210, 174, 53, 0.4);
             border: none;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-button:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
-        }
-        
-        .cta-button:hover:before {
-            left: 100%;
         }
         
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(210, 174, 53, 0.5);
+            box-shadow: 0 6px 20px rgba(210, 174, 53, 0.5);
         }
         
         /* Course Highlights */
         .highlights {
-            padding: 5rem 0;
+            padding: 3rem 0;
             background-color: white;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             color: var(--secondary);
             position: relative;
+            font-size: 1.8rem;
         }
         
         .section-title:after {
@@ -229,153 +206,159 @@
             width: 80px;
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
-            margin: 15px auto;
+            margin: 12px auto;
             border-radius: 2px;
         }
         
         .highlights-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
         .highlight-card {
             background-color: white;
-            padding: 2.5rem 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 1.8rem 1.2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             text-align: center;
-            transition: transform 0.4s, box-shadow 0.4s;
+            transition: transform 0.3s, box-shadow 0.3s;
             border-top: 4px solid var(--primary);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .highlight-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, transparent 70%);
-            opacity: 0.05;
-            z-index: 0;
         }
         
         .highlight-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
         
         .highlight-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, var(--primary), #e6c158);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            z-index: 1;
+            margin: 0 auto 1.2rem;
         }
         
         .highlight-card i {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: white;
         }
         
         .highlight-card h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--secondary);
-            position: relative;
-            z-index: 1;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
         
         .highlight-card p {
             color: var(--dark);
-            position: relative;
-            z-index: 1;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
         
-        /* Syllabus Section */
+        /* Syllabus Section - Accordion Style */
         .syllabus {
-            padding: 5rem 0;
+            padding: 3rem 0;
             background: linear-gradient(135deg, var(--accent) 0%, #f0e6c3 100%);
-            position: relative;
         }
         
-        .syllabus:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d2ae35' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.6;
+        .syllabus-accordion {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .syllabus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.8rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .month-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.4s;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            position: relative;
+        .accordion-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             overflow: hidden;
-            border-left: 5px solid var(--primary);
         }
         
-        .month-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        .accordion-header {
+            padding: 1.2rem 1.5rem;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            transition: all 0.3s;
         }
         
-        .month-number {
-            display: inline-flex;
+        .accordion-header:hover {
+            background: #f8f8f8;
+        }
+        
+        .accordion-header.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .month-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .month-badge {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary), #e6c158);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 1;
             font-weight: bold;
-            margin-bottom: 1.2rem;
-            font-size: 1rem;
-            box-shadow: 0 4px 10px rgba(210, 174, 53, 0.3);
+            font-size: 0.9rem;
         }
         
-        .month-card h3 {
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            line-height: 1.3;
+        .accordion-header.active .month-badge {
+            background: white;
+            color: var(--primary);
         }
         
-        .month-card p {
+        .accordion-icon {
+            transition: transform 0.3s;
+        }
+        
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #f9f9f9;
+        }
+        
+        .accordion-content.active {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        .accordion-content p {
             color: var(--dark);
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
         }
         
         /* Payment Section */
         .payment {
-            padding: 5rem 0;
+            padding: 3rem 0;
             background-color: white;
             text-align: center;
         }
@@ -383,81 +366,69 @@
         .pricing-container {
             display: flex;
             justify-content: center;
-            gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 3rem;
+            margin-top: 2rem;
+            gap: 1.5rem;
         }
         
         .pricing-option {
             background: white;
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             flex: 1;
-            min-width: 320px;
-            max-width: 480px;
+            min-width: 300px;
+            max-width: 450px;
             position: relative;
             border: 2px solid transparent;
-            transition: all 0.4s;
             background: linear-gradient(white, white) padding-box,
                         linear-gradient(135deg, var(--accent), var(--primary)) border-box;
-        }
-        
-        .pricing-option:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
         
         .pricing-option.featured {
             border: 2px solid transparent;
             background: linear-gradient(white, white) padding-box,
                         linear-gradient(135deg, var(--primary), #e6c158) border-box;
-            transform: scale(1.05);
-        }
-        
-        .pricing-option.featured:hover {
-            transform: scale(1.05) translateY(-10px);
         }
         
         .price {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--primary);
-            margin: 1.5rem 0;
+            margin: 1.2rem 0;
             font-weight: bold;
         }
         
         .original-price {
             text-decoration: line-through;
             color: var(--light);
-            font-size: 1.5rem;
-            margin-right: 10px;
+            font-size: 1.3rem;
+            margin-right: 8px;
         }
         
         .discount-badge {
             background: linear-gradient(45deg, #e74c3c, #c0392b);
             color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
             position: absolute;
-            top: -15px;
+            top: -12px;
             right: 20px;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
         }
         
         .features-list {
             list-style: none;
-            max-width: 600px;
-            margin: 2.5rem auto;
+            margin: 1.5rem auto;
             text-align: left;
+            max-width: 300px;
         }
         
         .features-list li {
-            margin-bottom: 1rem;
-            padding-left: 2.5rem;
+            margin-bottom: 0.7rem;
+            padding-left: 1.8rem;
             position: relative;
             color: var(--dark);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .features-list li:before {
@@ -466,158 +437,74 @@
             position: absolute;
             left: 0;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1rem;
         }
         
         .future-pricing {
             background: linear-gradient(135deg, var(--accent), #f0e6c3);
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-top: 3rem;
-            max-width: 800px;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--primary);
         }
         
         .future-pricing h3 {
             color: var(--secondary);
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
         
         .future-pricing p {
             color: var(--dark);
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-        }
-        
-        .future-pricing strong {
-            color: var(--primary);
-        }
-        
-        .enrollment-box {
-            background: linear-gradient(135deg, var(--secondary) 0%, #2a364a 100%);
-            color: white;
-            padding: 3.5rem;
-            border-radius: 20px;
-            max-width: 700px;
-            margin: 3rem auto 0;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .enrollment-box:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(210, 174, 53, 0.1) 0%, transparent 70%);
-        }
-        
-        .enrollment-box h3 {
-            color: var(--primary);
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .start-date {
-            background: linear-gradient(45deg, var(--primary), #e6c158);
-            color: var(--secondary);
-            padding: 10px 25px;
-            border-radius: 30px;
-            display: inline-block;
-            font-weight: bold;
-            margin: 1.5rem 0;
-            position: relative;
-            z-index: 1;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(210, 174, 53, 0.3);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
         }
         
         /* Registration Form */
         .registration-form {
             background-color: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            max-width: 550px;
-            margin: 3rem auto 0;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 2rem auto 0;
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             text-align: left;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
             font-weight: 500;
             color: var(--secondary);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
-        .form-group input,
-        .form-group select {
+        .form-group input {
             width: 100%;
-            padding: 14px 16px;
+            padding: 12px 14px;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: all 0.3s;
         }
         
-        .form-group input:focus,
-        .form-group select:focus {
+        .form-group input:focus {
             border-color: var(--primary);
             outline: none;
             box-shadow: 0 0 0 3px rgba(210, 174, 53, 0.2);
-        }
-        
-        .payment-options {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .payment-option {
-            flex: 1;
-            text-align: center;
-            padding: 1.2rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .payment-option.selected {
-            border-color: var(--primary);
-            background-color: rgba(210, 174, 53, 0.1);
-            box-shadow: 0 5px 15px rgba(210, 174, 53, 0.2);
-        }
-        
-        .payment-option h4 {
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-        
-        .payment-option .price {
-            font-size: 1.5rem;
-            margin: 0.5rem 0;
         }
         
         /* Footer */
         footer {
             background: linear-gradient(135deg, var(--secondary) 0%, #151d29 100%);
             color: white;
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 1.5rem;
         }
         
         .footer-content {
@@ -627,78 +514,99 @@
         }
         
         .footer-logo {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: bold;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             font-family: 'Playfair Display', serif;
         }
         
         .social-links {
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
         
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: rgba(255,255,255,0.1);
             color: white;
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             transition: all 0.3s;
         }
         
         .social-links a:hover {
             background: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
         
         .copyright {
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             text-align: center;
             color: var(--light);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
-        /* Responsive Design */
+        /* Mobile Navigation */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .logo {
-                margin-bottom: 1rem;
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--secondary);
+                padding: 1rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s;
+                z-index: 99;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
             }
             
             nav ul {
-                justify-content: center;
-                width: 100%;
+                flex-direction: column;
+                gap: 0;
             }
             
             nav ul li {
-                margin: 0.5rem 1rem;
+                margin: 0;
+                width: 100%;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 0.8rem 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            nav ul li:last-child a {
+                border-bottom: none;
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 0.95rem;
             }
             
-            .month-card, .highlight-card {
-                padding: 1.8rem;
-            }
-            
-            .enrollment-box {
-                padding: 2.5rem;
+            .section-title {
+                font-size: 1.6rem;
             }
             
             .pricing-container {
@@ -706,51 +614,50 @@
                 align-items: center;
             }
             
-            .pricing-option.featured {
-                transform: none;
-            }
-            
-            .pricing-option.featured:hover {
-                transform: translateY(-10px);
-            }
-            
             .pricing-option {
                 min-width: 100%;
-                padding: 2.5rem 2rem;
+                padding: 1.8rem 1.2rem;
+            }
+            
+            .registration-form {
+                padding: 1.5rem;
             }
         }
         
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
+            .container {
+                width: 95%;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .hero {
+                padding: 2.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .highlights, .syllabus, .payment {
+                padding: 2.5rem 0;
+            }
+            
+            .highlight-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .accordion-header {
+                padding: 1rem 1.2rem;
+                font-size: 0.95rem;
+            }
+            
+            .month-badge {
+                width: 28px;
+                height: 28px;
+                font-size: 0.8rem;
             }
             
             .price {
-                font-size: 2.5rem;
-            }
-            
-            .payment-options {
-                flex-direction: column;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .logo {
-                font-size: 1.6rem;
-            }
-            
-            nav ul li a {
-                font-size: 0.85rem;
-            }
-            
-            .registration-form {
-                padding: 2rem;
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -763,7 +670,10 @@
                 <i class="fas fa-palette"></i>
                 <span>कलाshala</span>
             </div>
-            <nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
                 <ul>
                     <li><a href="#highlights">Highlights</a></li>
                     <li><a href="#syllabus">Syllabus</a></li>
@@ -839,82 +749,177 @@
         </div>
     </section>
 
-    <!-- Syllabus Section -->
+    <!-- Syllabus Section - Accordion Style -->
     <section class="syllabus" id="syllabus">
         <div class="container">
             <h2 class="section-title">12-Month Professional Syllabus</h2>
-            <div class="syllabus-grid">
+            <div class="syllabus-accordion">
                 <!-- Month 1 -->
-                <div class="month-card">
-                    <div class="month-number">1</div>
-                    <h3>Embroidery & Fabric Painting Foundations</h3>
-                    <p>Tools, threads, fabrics, colour theory, hand stitches, brush techniques</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">1</span>
+                            <span>Embroidery & Fabric Painting Foundations</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Tools, threads, fabrics, colour theory, hand stitches, brush techniques</p>
+                    </div>
                 </div>
+                
                 <!-- Month 2 -->
-                <div class="month-card">
-                    <div class="month-number">2</div>
-                    <h3>Advanced Embroidery Techniques</h3>
-                    <p>Aari, Zardosi, thread combinations, texture, layered designs</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">2</span>
+                            <span>Advanced Embroidery Techniques</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Aari, Zardosi, thread combinations, texture, layered designs</p>
+                    </div>
                 </div>
+                
                 <!-- Month 3 -->
-                <div class="month-card">
-                    <div class="month-number">3</div>
-                    <h3>Bag Making Techniques</h3>
-                    <p>Tote, sling, clutch, structured bags, embroidery & painting integration</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">3</span>
+                            <span>Bag Making Techniques</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Tote, sling, clutch, structured bags, embroidery & painting integration</p>
+                    </div>
                 </div>
+                
                 <!-- Month 4 -->
-                <div class="month-card">
-                    <div class="month-number">4</div>
-                    <h3>Aari Work Jewellery</h3>
-                    <p>Earrings, pendants, bracelets, beads, sequins</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">4</span>
+                            <span>Aari Work Jewellery</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Earrings, pendants, bracelets, beads, sequins</p>
+                    </div>
                 </div>
+                
                 <!-- Month 5 -->
-                <div class="month-card">
-                    <div class="month-number">5</div>
-                    <h3>Fabric Painting for Home Décor</h3>
-                    <p>Freehand, stenciling, block printing, cushion covers, table mats</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">5</span>
+                            <span>Fabric Painting for Home Décor</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Freehand, stenciling, block printing, cushion covers, table mats</p>
+                    </div>
                 </div>
+                
                 <!-- Month 6 -->
-                <div class="month-card">
-                    <div class="month-number">6</div>
-                    <h3>Garment Construction – Fundamentals</h3>
-                    <p>Cutting, stitching, seams, pleats, darts</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">6</span>
+                            <span>Garment Construction – Fundamentals</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Cutting, stitching, seams, pleats, darts</p>
+                    </div>
                 </div>
+                
                 <!-- Month 7 -->
-                <div class="month-card">
-                    <div class="month-number">7</div>
-                    <h3>Advanced Bag Making</h3>
-                    <p>Multi-pocket, zippers, flap designs, finishing</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">7</span>
+                            <span>Advanced Bag Making</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Multi-pocket, zippers, flap designs, finishing</p>
+                    </div>
                 </div>
+                
                 <!-- Month 8 -->
-                <div class="month-card">
-                    <div class="month-number">8</div>
-                    <h3>Advanced Aari Work</h3>
-                    <p>Complex patterns, layering, commercial applications</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">8</span>
+                            <span>Advanced Aari Work</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Complex patterns, layering, commercial applications</p>
+                    </div>
                 </div>
+                
                 <!-- Month 9 -->
-                <div class="month-card">
-                    <div class="month-number">9</div>
-                    <h3>Fabric Painting on Garments</h3>
-                    <p>Kurtis, sarees, tops, placement, gradients, embroidery integration</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">9</span>
+                            <span>Fabric Painting on Garments</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Kurtis, sarees, tops, placement, gradients, embroidery integration</p>
+                    </div>
                 </div>
+                
                 <!-- Month 10 -->
-                <div class="month-card">
-                    <div class="month-number">10</div>
-                    <h3>Garment Construction – Advanced</h3>
-                    <p>Tailoring collars, cuffs, sleeves, fitted garments, linings</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">10</span>
+                            <span>Garment Construction – Advanced</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Tailoring collars, cuffs, sleeves, fitted garments, linings</p>
+                    </div>
                 </div>
+                
                 <!-- Month 11 -->
-                <div class="month-card">
-                    <div class="month-number">11</div>
-                    <h3>Integrated Skills</h3>
-                    <p>Combining all techniques in one product</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">11</span>
+                            <span>Integrated Skills</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Combining all techniques in one product</p>
+                    </div>
                 </div>
+                
                 <!-- Month 12 -->
-                <div class="month-card">
-                    <div class="month-number">12</div>
-                    <h3>Portfolio Development & Professional Assessment</h3>
-                    <p>Presentation, portfolio creation, marketing</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <div class="month-indicator">
+                            <span class="month-badge">12</span>
+                            <span>Portfolio Development & Professional Assessment</span>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Presentation, portfolio creation, marketing</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -972,17 +977,6 @@
                         <input type="text" id="location" name="location" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label>Payment Option</label>
-                        <div class="payment-options">
-                            <div class="payment-option selected">
-                                <h4>One-Time Payment</h4>
-                                <p class="price">₹15,000</p>
-                                <p>Special Offer</p>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <button type="button" class="cta-button" onclick="processRegistration()">Submit Registration</button>
                 </form>
             </div>
@@ -999,24 +993,57 @@
                 <a href="https://wa.me/919146210111" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p>Contact us: learnwithkalashala@gmail.com | +91 91462 10111</p>
-            <div class="copyright">
-                <p>&copy; 2023 कलाshala. All rights reserved.</p>
             </div>
-        </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+            });
+        });
+        
         // Smooth scrolling for navigation links
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
+        
+        // Accordion functionality for syllabus
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+                const accordionContent = header.nextElementSibling;
+                
+                // Close all other accordion items
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    if (item !== accordionItem) {
+                        item.querySelector('.accordion-header').classList.remove('active');
+                        item.querySelector('.accordion-content').classList.remove('active');
+                    }
+                });
+                
+                // Toggle current accordion item
+                header.classList.toggle('active');
+                accordionContent.classList.toggle('active');
+            });
+        });
+        
+        // Open first accordion by default
+        document.querySelector('.accordion-header').click();
         
         // Scroll to registration form
         function scrollToForm() {
@@ -1037,7 +1064,7 @@
             }
             
             // Prepare data for payment
-            const amount = 100; // Amount in paise (₹1)
+            const amount = 1500000; // Amount in paise (₹15,000)
             
             // Create order and open Razorpay checkout
             const options = {
