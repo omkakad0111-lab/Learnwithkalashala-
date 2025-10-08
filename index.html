@@ -51,16 +51,18 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         
         .logo {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--primary);
             display: flex;
@@ -75,10 +77,11 @@
         nav ul {
             display: flex;
             list-style: none;
+            flex-wrap: wrap;
         }
         
         nav ul li {
-            margin-left: 1.8rem;
+            margin-left: 1.5rem;
         }
         
         nav ul li a {
@@ -87,6 +90,7 @@
             transition: color 0.3s;
             font-weight: 500;
             position: relative;
+            font-size: 0.9rem;
         }
         
         nav ul li a:after {
@@ -113,38 +117,54 @@
             background: linear-gradient(135deg, var(--secondary) 0%, #2a364a 100%);
             color: white;
             text-align: center;
-            padding: 6rem 0;
+            padding: 5rem 0;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d2ae35' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
             color: var(--primary);
             line-height: 1.2;
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin: 0 auto 2.5rem;
             color: var(--accent);
             max-width: 700px;
         }
         
         .urgency-banner {
-            background-color: #e74c3c;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 2rem;
             font-weight: bold;
             animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
         }
         
         @keyframes pulse {
@@ -155,35 +175,50 @@
         
         .cta-button {
             display: inline-block;
-            background-color: var(--primary);
+            background: linear-gradient(45deg, var(--primary), #e6c158);
             color: var(--secondary);
-            padding: 16px 40px;
-            border-radius: 5px;
+            padding: 16px 35px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(210, 174, 53, 0.3);
-            border: 2px solid var(--primary);
+            box-shadow: 0 6px 20px rgba(210, 174, 53, 0.4);
+            border: none;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .cta-button:hover:before {
+            left: 100%;
         }
         
         .cta-button:hover {
-            background-color: transparent;
-            color: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(210, 174, 53, 0.4);
+            box-shadow: 0 8px 25px rgba(210, 174, 53, 0.5);
         }
         
         /* Course Highlights */
         .highlights {
-            padding: 6rem 0;
+            padding: 5rem 0;
             background-color: white;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             color: var(--secondary);
             position: relative;
         }
@@ -191,22 +226,23 @@
         .section-title:after {
             content: '';
             display: block;
-            width: 100px;
-            height: 3px;
-            background-color: var(--primary);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
             margin: 15px auto;
+            border-radius: 2px;
         }
         
         .highlights-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
         
         .highlight-card {
             background-color: white;
-            padding: 2.5rem 2rem;
-            border-radius: 10px;
+            padding: 2.5rem 1.5rem;
+            border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             text-align: center;
             transition: transform 0.4s, box-shadow 0.4s;
@@ -228,35 +264,47 @@
         }
         
         .highlight-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .highlight-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), #e6c158);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
         }
         
         .highlight-card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.8rem;
-            position: relative;
-            z-index: 1;
+            font-size: 2rem;
+            color: white;
         }
         
         .highlight-card h3 {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             color: var(--secondary);
             position: relative;
             z-index: 1;
+            font-size: 1.3rem;
         }
         
         .highlight-card p {
             color: var(--dark);
             position: relative;
             z-index: 1;
+            font-size: 0.95rem;
         }
         
         /* Syllabus Section */
         .syllabus {
-            padding: 6rem 0;
-            background-color: var(--accent);
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--accent) 0%, #f0e6c3 100%);
             position: relative;
         }
         
@@ -267,36 +315,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d2ae35' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.4;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d2ae35' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
         }
         
         .syllabus-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
             position: relative;
             z-index: 1;
         }
         
         .month-card {
             background-color: white;
-            border-radius: 10px;
-            padding: 2.2rem;
+            border-radius: 15px;
+            padding: 2rem;
             transition: all 0.4s;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
-        }
-        
-        .month-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background-color: var(--primary);
+            border-left: 5px solid var(--primary);
         }
         
         .month-card:hover {
@@ -305,31 +344,38 @@
         }
         
         .month-number {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--secondary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), #e6c158);
+            color: white;
             width: 40px;
             height: 40px;
             border-radius: 50%;
             text-align: center;
-            line-height: 40px;
+            line-height: 1;
             font-weight: bold;
             margin-bottom: 1.2rem;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(210, 174, 53, 0.3);
         }
         
         .month-card h3 {
             color: var(--secondary);
-            margin-bottom: 1.2rem;
-            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            line-height: 1.3;
         }
         
         .month-card p {
             color: var(--dark);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
         
         /* Payment Section */
         .payment {
-            padding: 6rem 0;
+            padding: 5rem 0;
             background-color: white;
             text-align: center;
         }
@@ -344,23 +390,28 @@
         
         .pricing-option {
             background: white;
-            border-radius: 10px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
             flex: 1;
-            min-width: 300px;
-            max-width: 500px;
+            min-width: 320px;
+            max-width: 480px;
             position: relative;
-            border: 2px solid var(--accent);
-            transition: transform 0.3s;
+            border: 2px solid transparent;
+            transition: all 0.4s;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, var(--accent), var(--primary)) border-box;
         }
         
         .pricing-option:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
         
         .pricing-option.featured {
-            border-color: var(--primary);
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, var(--primary), #e6c158) border-box;
             transform: scale(1.05);
         }
         
@@ -383,14 +434,15 @@
         }
         
         .discount-badge {
-            background-color: #e74c3c;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 8px 20px;
+            border-radius: 30px;
             font-size: 0.9rem;
             position: absolute;
-            top: -10px;
+            top: -15px;
             right: 20px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
         }
         
         .features-list {
@@ -405,7 +457,7 @@
             padding-left: 2.5rem;
             position: relative;
             color: var(--dark);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .features-list li:before {
@@ -418,33 +470,41 @@
         }
         
         .future-pricing {
-            background-color: var(--accent);
-            padding: 2rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), #f0e6c3);
+            padding: 2.5rem;
+            border-radius: 15px;
             margin-top: 3rem;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary);
         }
         
         .future-pricing h3 {
             color: var(--secondary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
         }
         
         .future-pricing p {
             color: var(--dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+        
+        .future-pricing strong {
+            color: var(--primary);
         }
         
         .enrollment-box {
             background: linear-gradient(135deg, var(--secondary) 0%, #2a364a 100%);
             color: white;
             padding: 3.5rem;
-            border-radius: 15px;
-            max-width: 750px;
+            border-radius: 20px;
+            max-width: 700px;
             margin: 3rem auto 0;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
             position: relative;
             overflow: hidden;
         }
@@ -461,31 +521,33 @@
         
         .enrollment-box h3 {
             color: var(--primary);
-            margin-bottom: 1.8rem;
+            margin-bottom: 2rem;
             font-size: 1.8rem;
             position: relative;
             z-index: 1;
         }
         
         .start-date {
-            background-color: var(--primary);
+            background: linear-gradient(45deg, var(--primary), #e6c158);
             color: var(--secondary);
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 30px;
             display: inline-block;
             font-weight: bold;
             margin: 1.5rem 0;
             position: relative;
             z-index: 1;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(210, 174, 53, 0.3);
         }
         
         /* Registration Form */
         .registration-form {
             background-color: white;
             padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            max-width: 550px;
             margin: 3rem auto 0;
         }
         
@@ -496,25 +558,27 @@
         
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-weight: 500;
             color: var(--secondary);
+            font-size: 1rem;
         }
         
         .form-group input,
         .form-group select {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
         
         .form-group input:focus,
         .form-group select:focus {
             border-color: var(--primary);
             outline: none;
+            box-shadow: 0 0 0 3px rgba(210, 174, 53, 0.2);
         }
         
         .payment-options {
@@ -526,9 +590,9 @@
         .payment-option {
             flex: 1;
             text-align: center;
-            padding: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
+            padding: 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -536,10 +600,12 @@
         .payment-option.selected {
             border-color: var(--primary);
             background-color: rgba(210, 174, 53, 0.1);
+            box-shadow: 0 5px 15px rgba(210, 174, 53, 0.2);
         }
         
         .payment-option h4 {
             margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
         
         .payment-option .price {
@@ -549,7 +615,7 @@
         
         /* Footer */
         footer {
-            background-color: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary) 0%, #151d29 100%);
             color: white;
             padding: 4rem 0 2rem;
         }
@@ -570,17 +636,26 @@
         
         .social-links {
             margin: 2rem 0;
+            display: flex;
+            gap: 1.5rem;
         }
         
         .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
             color: white;
-            margin: 0 1.2rem;
-            font-size: 1.6rem;
-            transition: color 0.3s;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s;
         }
         
         .social-links a:hover {
-            color: var(--primary);
+            background: var(--primary);
+            transform: translateY(-5px);
         }
         
         .copyright {
@@ -594,12 +669,16 @@
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
             }
             
             nav ul {
-                margin-top: 1.5rem;
-                flex-wrap: wrap;
                 justify-content: center;
+                width: 100%;
             }
             
             nav ul li {
@@ -607,7 +686,11 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
             }
             
             .month-card, .highlight-card {
@@ -630,23 +713,44 @@
             .pricing-option.featured:hover {
                 transform: translateY(-10px);
             }
+            
+            .pricing-option {
+                min-width: 100%;
+                padding: 2.5rem 2rem;
+            }
         }
         
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .price {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             
             .payment-options {
                 flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            nav ul li a {
+                font-size: 0.85rem;
+            }
+            
+            .registration-form {
+                padding: 2rem;
             }
         }
     </style>
@@ -690,32 +794,44 @@
             <h2 class="section-title">Course Highlights</h2>
             <div class="highlights-grid">
                 <div class="highlight-card">
-                    <i class="fas fa-graduation-cap"></i>
+                    <div class="highlight-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
                     <h3>Professional Skill Development</h3>
                     <p>Learn industry-ready techniques from experienced instructors</p>
                 </div>
                 <div class="highlight-card">
-                    <i class="fas fa-hands"></i>
+                    <div class="highlight-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
                     <h3>Hands-on Exercises</h3>
                     <p>Practical exercises every month to reinforce learning</p>
                 </div>
                 <div class="highlight-card">
-                    <i class="fas fa-laptop"></i>
+                    <div class="highlight-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
                     <h3>Flexible Learning</h3>
                     <p>Live + recorded sessions to fit your schedule</p>
                 </div>
                 <div class="highlight-card">
-                    <i class="fas fa-tools"></i>
+                    <div class="highlight-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
                     <h3>Material Guidance</h3>
                     <p>Complete guidance on materials for all techniques</p>
                 </div>
                 <div class="highlight-card">
-                    <i class="fas fa-briefcase"></i>
+                    <div class="highlight-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
                     <h3>Market-Ready Skills</h3>
                     <p>Commercially applicable skills for immediate market entry</p>
                 </div>
                 <div class="highlight-card">
-                    <i class="fas fa-certificate"></i>
+                    <div class="highlight-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
                     <h3>Certificate</h3>
                     <p>Professional certificate upon course completion</p>
                 </div>
@@ -732,7 +848,7 @@
                 <div class="month-card">
                     <div class="month-number">1</div>
                     <h3>Embroidery & Fabric Painting Foundations</h3>
-                    <p>Tools, threads, fabrics, color theory, hand stitches, brush techniques</p>
+                    <p>Tools, threads, fabrics, colour theory, hand stitches, brush techniques</p>
                 </div>
                 <!-- Month 2 -->
                 <div class="month-card">
@@ -761,7 +877,7 @@
                 <!-- Month 6 -->
                 <div class="month-card">
                     <div class="month-number">6</div>
-                    <h3>Garment Construction Fundamentals</h3>
+                    <h3>Garment Construction – Fundamentals</h3>
                     <p>Cutting, stitching, seams, pleats, darts</p>
                 </div>
                 <!-- Month 7 -->
@@ -785,7 +901,7 @@
                 <!-- Month 10 -->
                 <div class="month-card">
                     <div class="month-number">10</div>
-                    <h3>Advanced Garment Construction</h3>
+                    <h3>Garment Construction – Advanced</h3>
                     <p>Tailoring collars, cuffs, sleeves, fitted garments, linings</p>
                 </div>
                 <!-- Month 11 -->
@@ -880,12 +996,13 @@
             <p>Transform your creativity into a professional career</p>
             <div class="social-links">
                 <a href="https://www.instagram.com/learn_with_kalashala?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/919146210111" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p>Contact us: learnwithkalashala@email.com | +91 9146210111</p>
+            <p>Contact us: learnwithkalashala@gmail.com | +91 91462 10111</p>
+            <div class="copyright">
+                <p>&copy; 2023 कलाshala. All rights reserved.</p>
             </div>
+        </div>
     </footer>
 
     <script>
@@ -920,7 +1037,7 @@
             }
             
             // Prepare data for payment
-            const amount = 1500000; // Amount in paise (₹15,000)
+            const amount = 100; // Amount in paise (₹1)
             
             // Create order and open Razorpay checkout
             const options = {
