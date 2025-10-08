@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>कलाshala - Embroidery & Fabric Painting Specialist Course</title>
+    <title>कलाshala - One-Year Master Program in Handcrafted Fashion & Textile Arts</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -260,14 +260,58 @@
             line-height: 1.5;
         }
         
-        /* Syllabus Section - Accordion Style */
-        .syllabus {
+        /* Teacher Profile Section */
+        .teacher-profile {
             padding: 3rem 0;
             background: linear-gradient(135deg, var(--accent) 0%, #f0e6c3 100%);
         }
         
+        .teacher-container {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .teacher-image {
+            flex: 1;
+            max-width: 300px;
+        }
+        
+        .teacher-photo {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid var(--primary);
+        }
+        
+        .teacher-info {
+            flex: 2;
+        }
+        
+        .teacher-info h2 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .teacher-info p {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Syllabus Section - Accordion Style */
+        .syllabus {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        
         .syllabus-accordion {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -305,31 +349,6 @@
             color: white;
         }
         
-        .month-indicator {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .month-badge {
-            background: var(--primary);
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-        
-        .accordion-header.active .month-badge {
-            background: white;
-            color: var(--primary);
-        }
-        
         .accordion-icon {
             transition: transform 0.3s;
             flex-shrink: 0;
@@ -349,14 +368,168 @@
         
         .accordion-content.active {
             padding: 1.5rem;
-            max-height: 500px;
+            max-height: 1000px;
         }
         
         .accordion-content p {
             color: var(--dark);
             font-size: 0.9rem;
             line-height: 1.6;
-            margin: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .course-features {
+            background: linear-gradient(135deg, var(--accent) 0%, #f0e6c3 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+        }
+        
+        .course-features h4 {
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .course-features ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .course-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        
+        .course-features li:before {
+            content: "✓";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        /* Updated Image Gallery Styles */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 0.8rem;
+            border: 2px solid var(--primary);
+            background-color: #f8f8f8;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .image-placeholder:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-placeholder:hover img {
+            transform: scale(1.05);
+        }
+
+        /* For different column layouts */
+        .image-gallery.two-columns {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .image-gallery.three-columns {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .image-gallery.four-columns {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .image-placeholder {
+                height: 160px;
+            }
+            
+            .image-gallery.three-columns,
+            .image-gallery.four-columns {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            
+            .image-placeholder {
+                height: 180px;
+            }
+            
+            .image-gallery.two-columns,
+            .image-gallery.three-columns,
+            .image-gallery.four-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Add some visual enhancements */
+        .image-count-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1rem 0.5rem 0.5rem;
+            font-size: 0.75rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-placeholder:hover .image-caption {
+            opacity: 1;
         }
         
         /* Payment Section */
@@ -473,6 +646,25 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             max-width: 500px;
             margin: 2rem auto 0;
+            position: relative;
+        }
+        
+        .form-urgency-banner {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            font-size: 0.85rem;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
         }
         
         .form-group {
@@ -627,6 +819,19 @@
                 font-size: 1.6rem;
             }
             
+            .teacher-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .teacher-image {
+                max-width: 250px;
+            }
+            
+            .teacher-photo {
+                height: 280px;
+            }
+            
             .pricing-container {
                 flex-direction: column;
                 align-items: center;
@@ -644,12 +849,6 @@
             .accordion-header {
                 padding: 1rem 1.2rem;
             }
-            
-            .month-badge {
-                width: 30px;
-                height: 30px;
-                font-size: 0.85rem;
-            }
         }
         
         @media (max-width: 480px) {
@@ -665,7 +864,7 @@
                 font-size: 1.5rem;
             }
             
-            .highlights, .syllabus, .payment {
+            .highlights, .syllabus, .payment, .teacher-profile {
                 padding: 2.5rem 0;
             }
             
@@ -678,22 +877,17 @@
                 font-size: 0.95rem;
             }
             
-            .month-indicator {
-                gap: 10px;
-            }
-            
-            .month-badge {
-                width: 28px;
-                height: 28px;
-                font-size: 0.8rem;
-            }
-            
             .price {
                 font-size: 2.2rem;
             }
             
             .footer-logo {
                 font-size: 1.8rem;
+            }
+            
+            .form-urgency-banner {
+                font-size: 0.8rem;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -712,7 +906,8 @@
             <nav id="mainNav">
                 <ul>
                     <li><a href="#highlights">Highlights</a></li>
-                    <li><a href="#syllabus">Syllabus</a></li>
+                    <li><a href="#teacher">Instructor</a></li>
+                    <li><a href="#syllabus">Curriculum</a></li>
                     <li><a href="#payment">Enroll</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -723,18 +918,18 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>1-Year Embroidery & Fabric Painting Specialist Course</h1>
-            <p>Master professional techniques in embroidery, fabric painting, bag making, Aari jewellery, and garment construction. Become industry-ready in just 12 months!</p>
+            <h1>One-Year Master Program in Handcrafted Fashion & Textile Arts</h1>
+            <p>Master professional techniques in embroidery, fabric painting, bag making, and garment construction. Become industry-ready in just 12 months!</p>
             
             <div class="urgency-banner">
-                <i class="fas fa-exclamation-circle"></i> Only 4 Seats Left!
+                <i class="fas fa-exclamation-circle"></i> Only 6 Seats Left!
             </div>
             
             <a href="#payment" class="cta-button">Enroll Now</a>
         </div>
     </section>
 
-    <!-- Course Highlights -->
+    <!-- Course Highlights Section -->
     <section class="highlights" id="highlights">
         <div class="container">
             <h2 class="section-title">Course Highlights</h2>
@@ -785,176 +980,220 @@
         </div>
     </section>
 
+    <!-- Teacher Profile Section -->
+    <section class="teacher-profile" id="teacher">
+        <div class="container">
+            <h2 class="section-title">Meet Your Instructor</h2>
+            <div class="teacher-container">
+                <div class="teacher-image">
+                    <img src="images/tutor.jpeg" alt="Course Instructor" class="teacher-photo">
+                </div>
+                <div class="teacher-info">
+                    <h2>Revati</h2>
+                    <p>With over  years of experience in handcrafted textile arts, I'm passionate about sharing traditional techniques with modern applications. My expertise spans across embroidery, fabric painting, and garment construction.</p>
+                    <p>I've trained hundreds of students to develop their creative skills and turn their passion into profession. My teaching approach focuses on practical, hands-on learning with personalized guidance for each student.</p>
+                    <p>Join me in this comprehensive program to master the art of handcrafted fashion and build a successful career in textile arts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Syllabus Section - Accordion Style -->
     <section class="syllabus" id="syllabus">
         <div class="container">
-            <h2 class="section-title">12-Month Professional Syllabus</h2>
+            <h2 class="section-title">Course Curriculum</h2>
             <div class="syllabus-accordion">
-                <!-- Month 1 -->
+                <!-- Hand Embroidery -->
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">1</span>
-                            <span>Embroidery & Fabric Painting Foundations</span>
-                        </div>
+                        <span>1️⃣ Hand Embroidery</span>
                         <i class="fas fa-chevron-down accordion-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Tools, threads, fabrics, colour theory, hand stitches, brush techniques</p>
+                        <p>Master the art of traditional and Western-style embroidery with comprehensive training in various stitches, patterns, and thread techniques.</p>
+                        <ul>
+                            <li>Traditional and Western-style embroidery patterns</li>
+                            <li>Various types of stitches and designs</li>
+                            <li>Thread and color combination techniques</li>
+                        </ul>
+                        <div class="image-gallery two-columns">
+                            <div class="image-placeholder">
+                                <img src="images/emb.jpeg" alt="Hand Embroidery Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/emb (2).jpeg" alt="Hand Embroidery Example">
+                                <div class="image-caption"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Month 2 -->
+                <!-- Fabric Painting -->
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">2</span>
-                            <span>Advanced Embroidery Techniques</span>
-                        </div>
+                        <span>2️⃣ Fabric Painting</span>
                         <i class="fas fa-chevron-down accordion-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Aari, Zardosi, thread combinations, texture, layered designs</p>
+                        <p>Learn professional fabric painting techniques including color blending, shading, and design composition for various applications.</p>
+                        <ul>
+                            <li>Color blending, shading, and design composition</li>
+                            <li>Practical work on sarees, kurtis, dupattas, bags, and home décor items</li>
+                        </ul>
+                        <div class="image-gallery two-columns">
+                            <div class="image-placeholder">
+                                <img src="images/Fabric painting.jpeg" alt="Fabric Painting Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/Fabric painting (2).jpeg" alt="Fabric Painting Example">
+                                <div class="image-caption"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Month 3 -->
+                <!-- Stitching & Drafting -->
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">3</span>
-                            <span>Bag Making Techniques</span>
-                        </div>
+                        <span>3️⃣ Stitching & Drafting</span>
                         <i class="fas fa-chevron-down accordion-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Tote, sling, clutch, structured bags, embroidery & painting integration</p>
+                        <p>Comprehensive training in garment construction from basic drafting to perfect fitting, including various blouse and outfit designs.</p>
+                        <ul>
+                            <li>10 types of blouse designs</li>
+                            <li>5 types of designer kurtis</li>
+                            <li>5 different designer outfits</li>
+                            <li>Complete training from basic drafting to perfect fitting</li>
+                        </ul>
+                        <div class="image-gallery four-columns">
+                            <div class="image-placeholder">
+                                <img src="images/Stitching.jpeg" alt="Stitching Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/stitching (2).jpeg" alt="Stitching Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/stitching (3).jpeg" alt="Stitching Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/stitching (4).jpeg" alt="Stitching Example">
+                                <div class="image-caption"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Month 4 -->
+                <!-- Bag Making -->
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">4</span>
-                            <span>Aari Work Jewellery</span>
-                        </div>
+                        <span>4️⃣ Bag Making</span>
                         <i class="fas fa-chevron-down accordion-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Earrings, pendants, bracelets, beads, sequins</p>
+                        <p>Learn to create 10 different types of bags including handbags, totes, sling bags, and clutches with professional finishing techniques.</p>
+                        <ul>
+                            <li>Total 10 types of bags (handbag, tote, sling, clutch, etc.)</li>
+                        </ul>
+                        <div class="image-gallery four-columns">
+                            <div class="image-placeholder">
+                                <img src="images/purse.jpeg" alt="Bag Making Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/purse (2).jpeg" alt="Bag Making Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/purse (3).jpeg" alt="Bag Making Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/purse (4).jpeg" alt="Bag Making Example">
+                                <div class="image-caption"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Month 5 -->
+                <!-- Home Décor -->
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">5</span>
-                            <span>Fabric Painting for Home Décor</span>
-                        </div>
+                        <span>5️⃣ Home Décor</span>
                         <i class="fas fa-chevron-down accordion-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Freehand, stenciling, block printing, cushion covers, table mats</p>
+                        <p>Create beautiful home décor items including pillow covers and wall frames using the techniques learned throughout the course.</p>
+                        <ul>
+                            <li>Pillow covers</li>
+                            <li>Wall frames and more</li>
+                        </ul>
+                        <div class="image-gallery three-columns">
+                            <div class="image-placeholder">
+                                <img src="images/Home decor.jpeg" alt="Home Decor Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/Home decor (2).jpeg" alt="Home Decor Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/Home decor (3).jpeg" alt="Home Decor Example">
+                                <div class="image-caption"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Month 6 -->
+                <!-- Brooches & Patch Work Designs -->
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">6</span>
-                            <span>Garment Construction – Fundamentals</span>
-                        </div>
+                        <span>6️⃣ Brooches & Patch Work Designs</span>
                         <i class="fas fa-chevron-down accordion-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Cutting, stitching, seams, pleats, darts</p>
+                        <p>Master various brooch design techniques and patchwork methods to create a unique designer collection.</p>
+                        <ul>
+                            <li>Various brooch design techniques</li>
+                            <li>Patchwork techniques and creating a creative designer collection</li>
+                        </ul>
+                        <div class="image-gallery three-columns">
+                            <div class="image-placeholder">
+                                <img src="images/Brooches patchwork.jpeg" alt="Brooch Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/Brooches patchwork (2).jpeg" alt="Brooch Example">
+                                <div class="image-caption"></div>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="images/Brooches patchwork (3).jpeg" alt="Brooch Example">
+                                <div class="image-caption"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Month 7 -->
+                <!-- Course Features -->
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">7</span>
-                            <span>Advanced Bag Making</span>
-                        </div>
+                        <span>💻 Course Features</span>
                         <i class="fas fa-chevron-down accordion-icon"></i>
                     </button>
                     <div class="accordion-content">
-                        <p>Multi-pocket, zippers, flap designs, finishing</p>
-                    </div>
-                </div>
-                
-                <!-- Month 8 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">8</span>
-                            <span>Advanced Aari Work</span>
+                        <div class="course-features">
+                            <h4>What You'll Get With This Course</h4>
+                            <ul>
+                                <li>Daily Live + Recording Access — Even if you miss a lecture, you can watch the recording anytime</li>
+                                <li>WhatsApp Support for Doubt Solving — Each student will receive personal guidance</li>
+                                <li>100% Practical Training with Creative Guidance</li>
+                            </ul>
                         </div>
-                        <i class="fas fa-chevron-down accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Complex patterns, layering, commercial applications</p>
-                    </div>
-                </div>
-                
-                <!-- Month 9 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">9</span>
-                            <span>Fabric Painting on Garments</span>
-                        </div>
-                        <i class="fas fa-chevron-down accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Kurtis, sarees, tops, placement, gradients, embroidery integration</p>
-                    </div>
-                </div>
-                
-                <!-- Month 10 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">10</span>
-                            <span>Garment Construction – Advanced</span>
-                        </div>
-                        <i class="fas fa-chevron-down accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Tailoring collars, cuffs, sleeves, fitted garments, linings</p>
-                    </div>
-                </div>
-                
-                <!-- Month 11 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">11</span>
-                            <span>Integrated Skills</span>
-                        </div>
-                        <i class="fas fa-chevron-down accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Combining all techniques in one product</p>
-                    </div>
-                </div>
-                
-                <!-- Month 12 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <div class="month-indicator">
-                            <span class="month-badge">12</span>
-                            <span>Portfolio Development & Professional Assessment</span>
-                        </div>
-                        <i class="fas fa-chevron-down accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Presentation, portfolio creation, marketing</p>
                     </div>
                 </div>
             </div>
@@ -965,32 +1204,28 @@
     <section class="payment" id="payment">
         <div class="container">
             <h2 class="section-title">Enroll in the Course</h2>
-            <p>Start your journey to becoming a professional embroidery and fabric painting specialist</p>
+            <p>Start your journey to becoming a professional in handcrafted fashion & textile arts</p>
             
             <div class="pricing-container">
                 <div class="pricing-option featured">
-                    <div class="discount-badge">Limited Time Offer</div>
-                    <h3>Special One-Time Payment</h3>
-                    <p class="price"><span class="original-price">₹28,000</span> ₹15,000</p>
-                    <p>For first 10 students only</p>
+                    <div class="discount-badge">Special Offer</div>
+                    <h3>Complete Course Package</h3>
+                    <p class="price">₹15,000</p>
+                    <p>All-inclusive with materials</p>
                     <ul class="features-list">
-                        <li>Save ₹13,000 with this special offer</li>
-                        <li>Full course access</li>
-                        <li>All materials included</li>
+                        <li>Full course access for 1 year</li>
+                        <li>All learning materials included</li>
+                        <li>Personalized guidance</li>
                         <li>Certificate upon completion</li>
                     </ul>
-                    <button class="cta-button" onclick="scrollToForm()">Select This Plan</button>
+                    <button class="cta-button" onclick="scrollToForm()">Enroll Now</button>
                 </div>
             </div>
             
-            <div class="future-pricing">
-                <h3>After First 10 Students:</h3>
-                <p><strong>Regular Course Fee: ₹28,000</strong></p>
-                <p>One-time payment: ₹25,000 (Save ₹3,000)</p>
-                <p>Installment option: 3 payments of ₹9,334 each</p>
-            </div>
-            
             <div class="registration-form" id="registration-form">
+                <div class="form-urgency-banner">
+                    <i class="fas fa-exclamation-circle"></i>  Only 6 Seats Left!
+                </div>Limited
                 <h3>Registration Form</h3>
                 <form id="enrollmentForm">
                     <div class="form-group">
@@ -1031,6 +1266,9 @@
                 <a href="https://www.instagram.com/learn_with_kalashala?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/919146210111" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
+            <div class="copyright">
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -1116,7 +1354,7 @@
                 amount: amount,
                 currency: 'INR',
                 name: 'कलाshala',
-                description: 'Embroidery & Fabric Painting Course - Special Offer',
+                description: 'One-Year Master Program in Handcrafted Fashion & Textile Arts',
                 image: '', // Add your logo URL here
                 handler: function(response) {
                     // On successful payment
@@ -1137,7 +1375,7 @@
             const rzp = new Razorpay(options);
             rzp.open();
         }
-        
+            
         // Send WhatsApp message
         function sendWhatsAppMessage(formData, paymentId) {
             const name = formData.get('name');
@@ -1145,7 +1383,7 @@
             const phone = formData.get('phone');
             const location = formData.get('location');
             
-            const message = `New Course Registration:%0A%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ALocation: ${location}%0APayment Option: One-Time (₹15,000 Special Offer)%0APayment ID: ${paymentId}`;
+            const message = `New Course Registration:%0A%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ALocation: ${location}%0APayment Option: One-Time (₹15,000)%0APayment ID: ${paymentId}`;
             
             const whatsappUrl = `https://wa.me/919146210111?text=${message}`;
             
@@ -1155,4 +1393,3 @@
     </script>
 </body>
 </html>
-
