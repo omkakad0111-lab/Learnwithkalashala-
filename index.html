@@ -532,6 +532,40 @@
             opacity: 1;
         }
         
+        /* Pricing Info Banner */
+        .pricing-info-banner {
+            background: linear-gradient(135deg, var(--primary), #e6c158);
+            color: var(--secondary);
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin: 2rem auto;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(210, 174, 53, 0.3);
+            border: 2px solid var(--primary);
+        }
+        
+        .pricing-info-banner h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .pricing-info-banner p {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        
         /* Payment Section */
         .payment {
             padding: 3rem 0;
@@ -849,6 +883,15 @@
             .accordion-header {
                 padding: 1rem 1.2rem;
             }
+            
+            .pricing-info-banner {
+                padding: 1rem;
+                margin: 1.5rem auto;
+            }
+            
+            .pricing-info-banner h3 {
+                font-size: 1.1rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -920,9 +963,10 @@
         <div class="container hero-content">
             <h1>One-Year Master Program in Handcrafted Fashion & Textile Arts</h1>
             <p>Master professional techniques in embroidery, fabric painting, bag making, and garment construction. Become industry-ready in just 12 months!</p>
-            
+            <p>SPECIAL OFFER! For First 10 Registrations, Fee -
+                ₹15,000 after that the Original Price ₹28,000 will apply</p>
             <div class="urgency-banner">
-                <i class="fas fa-exclamation-circle"></i> Only 6 Seats Left!
+                <i class="fas fa-exclamation-circle"></i> Only 6 Seats Left for Special Offer!
             </div>
             
             <a href="#payment" class="cta-button">Enroll Now</a>
@@ -989,8 +1033,8 @@
                     <img src="images/tutor.jpeg" alt="Course Instructor" class="teacher-photo">
                 </div>
                 <div class="teacher-info">
-                    <h2>Revati</h2>
-                    <p>With over  years of experience in handcrafted textile arts, I'm passionate about sharing traditional techniques with modern applications. My expertise spans across embroidery, fabric painting, and garment construction.</p>
+                    <h2>Revati Gawande</h2>
+                    <p>With over 8 years of experience in handcrafted textile arts, I'm passionate about sharing traditional techniques with modern applications. My expertise spans across embroidery, fabric painting, and garment construction.</p>
                     <p>I've trained hundreds of students to develop their creative skills and turn their passion into profession. My teaching approach focuses on practical, hands-on learning with personalized guidance for each student.</p>
                     <p>Join me in this comprehensive program to master the art of handcrafted fashion and build a successful career in textile arts.</p>
                 </div>
@@ -1206,27 +1250,48 @@
             <h2 class="section-title">Enroll in the Course</h2>
             <p>Start your journey to becoming a professional in handcrafted fashion & textile arts</p>
             
+            <!-- Special Offer Banner Above Enroll Button -->
+            <div class="pricing-info-banner">
+                <h3>🚨 Special Offer!</h3>
+                <p>First <span class="highlight-text">10 registrations</span> get the complete course for only <span class="highlight-text">₹15,000</span> (all-inclusive)</p>
+                <p><strong>Only <span class="highlight-text">6 seats left</span> at this special price!</strong></p>
+                <p>After first 10 students: Regular fee ₹28,000 (₹25,000 one-time or 3 installments of ₹9,334)</p>
+            </div>
+            
             <div class="pricing-container">
                 <div class="pricing-option featured">
                     <div class="discount-badge">Special Offer</div>
-                    <h3>Complete Course Package</h3>
+                    <h3>Only for First 10 Students</h3>
                     <p class="price">₹15,000</p>
                     <p>All-inclusive with materials</p>
                     <ul class="features-list">
+                        <LI>For first 10 Students ₹15,000 (Original Price ₹28,000)</LI>
                         <li>Full course access for 1 year</li>
                         <li>All learning materials included</li>
                         <li>Personalized guidance</li>
                         <li>Certificate upon completion</li>
+                        <li>Save ₹13,000 from regular price</li>
                     </ul>
                     <button class="cta-button" onclick="scrollToForm()">Enroll Now</button>
                 </div>
             </div>
             
+            <div class="future-pricing">
+                <h3>Regular Pricing (After First 10 Students)</h3>
+                <p><strong>One-time Payment: ₹25,000</strong> (Save ₹3,000)</p>
+                <p><strong>Installment Option: 3 payments of ₹9,334 each</strong></p>
+                <p>Total: ₹28,000</p>
+            </div>
+            
             <div class="registration-form" id="registration-form">
                 <div class="form-urgency-banner">
-                    <i class="fas fa-exclamation-circle"></i>  Only 6 Seats Left!
-                </div>Limited
+                    <i class="fas fa-exclamation-circle"></i> Only 6 Seats Left at ₹15,000!
+                </div>
                 <h3>Registration Form</h3>
+                <p style="text-align: center; margin-bottom: 1.5rem; color: var(--dark); font-size: 0.9rem;">
+                    <strong>Special Offer:</strong> First 10 students get complete course for ₹15,000<br>
+                    <span style="color: #e74c3c;">Only 6 seats remaining at this price!</span>
+                </p>
                 <form id="enrollmentForm">
                     <div class="form-group">
                         <label for="name">Full Name</label>
@@ -1267,6 +1332,7 @@
                 <a href="https://wa.me/919146210111" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
             <div class="copyright">
+                <p>&copy; 2023 कलाshala. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1354,7 +1420,7 @@
                 amount: amount,
                 currency: 'INR',
                 name: 'कलाshala',
-                description: 'One-Year Master Program in Handcrafted Fashion & Textile Arts',
+                description: 'One-Year Master Program in Handcrafted Fashion & Textile Arts - Special Offer',
                 image: '', // Add your logo URL here
                 handler: function(response) {
                     // On successful payment
@@ -1383,7 +1449,7 @@
             const phone = formData.get('phone');
             const location = formData.get('location');
             
-            const message = `New Course Registration:%0A%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ALocation: ${location}%0APayment Option: One-Time (₹15,000)%0APayment ID: ${paymentId}`;
+            const message = `New Course Registration:%0A%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ALocation: ${location}%0APayment Option: Special Offer (₹15,000)%0APayment ID: ${paymentId}`;
             
             const whatsappUrl = `https://wa.me/919146210111?text=${message}`;
             
