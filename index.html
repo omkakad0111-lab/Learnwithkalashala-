@@ -6,7 +6,6 @@
     <title>कलाshala - One-Year Master Program in Handcrafted Fashion & Textile Arts</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <style>
         * {
             margin: 0;
@@ -729,6 +728,72 @@
             box-shadow: 0 0 0 3px rgba(210, 174, 53, 0.2);
         }
         
+        /* Payment Options */
+        .payment-options {
+            background: linear-gradient(135deg, var(--accent), #f0e6c3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .payment-options h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .payment-method.selected {
+            border-color: var(--primary);
+            background: rgba(210, 174, 53, 0.1);
+        }
+        
+        .payment-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .payment-details {
+            flex: 1;
+        }
+        
+        .payment-details h4 {
+            margin-bottom: 0.3rem;
+            color: var(--secondary);
+        }
+        
+        .payment-details p {
+            font-size: 0.8rem;
+            color: var(--dark);
+            margin: 0;
+        }
+        
         /* Footer */
         footer {
             background: linear-gradient(135deg, var(--secondary) 0%, #151d29 100%);
@@ -1283,6 +1348,30 @@
                 <p>Total: ₹28,000</p>
             </div>
             
+            <div class="payment-options">
+                <h3>Choose Payment Method</h3>
+                <div class="payment-methods">
+                    <div class="payment-method" onclick="selectPaymentMethod('whatsapp')">
+                        <div class="payment-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="payment-details">
+                            <h4>Pay via WhatsApp</h4>
+                            <p>Complete registration and pay via WhatsApp. We'll send you payment details.</p>
+                        </div>
+                    </div>
+                    <div class="payment-method" onclick="selectPaymentMethod('bank')">
+                        <div class="payment-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="payment-details">
+                            <h4>Bank Transfer</h4>
+                            <p>Transfer directly to our bank account. Details will be provided after registration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="registration-form" id="registration-form">
                 <div class="form-urgency-banner">
                     <i class="fas fa-exclamation-circle"></i> Only 6 Seats Left at ₹15,000!
@@ -1313,7 +1402,7 @@
                         <input type="text" id="location" name="location" required>
                     </div>
                     
-                    <button type="button" class="cta-button" onclick="processRegistration()">Submit Registration</button>
+                    <button type="button" class="cta-button" onclick="processRegistration()">Complete Registration</button>
                 </form>
             </div>
         </div>
@@ -1397,6 +1486,18 @@
             });
         }
         
+        let selectedPaymentMethod = 'whatsapp';
+        
+        function selectPaymentMethod(method) {
+            selectedPaymentMethod = method;
+            
+            // Update UI to show selected method
+            document.querySelectorAll('.payment-method').forEach(el => {
+                el.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+        }
+        
         // Process registration
         function processRegistration() {
             const form = document.getElementById('enrollmentForm');
@@ -1411,48 +1512,17 @@
                 return;
             }
             
-            // Store form data for later use
-            const formData = {
-                name: name,
-                email: email,
-                phone: phone,
-                location: location
-            };
+            // Send WhatsApp message with registration details
+            sendWhatsAppMessage({name, email, phone, location});
             
-            // Prepare data for payment
-            const amount = 100; // Amount in paise (₹1)
-            
-            // Create order and open Razorpay checkout
-            const options = {
-                key: 'rzp_live_RQuNoXcRTBUHXk', // Replace with your actual Razorpay key
-                amount: amount,
-                currency: 'INR',
-                name: 'कलाshala',
-                description: 'One-Year Master Program in Handcrafted Fashion & Textile Arts - Special Offer',
-                image: '', // Add your logo URL here
-                handler: function(response) {
-                    // On successful payment - send WhatsApp message
-                    sendWhatsAppMessage(formData, response.razorpay_payment_id);
-                    alert('Payment successful! We will contact you shortly.');
-                    form.reset();
-                },
-                prefill: {
-                    name: name,
-                    email: email,
-                    contact: phone
-                },
-                theme: {
-                    color: '#D2AE35'
-                }
-            };
-            
-            const rzp = new Razorpay(options);
-            rzp.open();
+            // Show success message
+            alert('Registration submitted successfully! We will contact you shortly with payment details.');
+            form.reset();
         }
             
-        // Send WhatsApp message - ONLY after payment
-        function sendWhatsAppMessage(formData, paymentId) {
-            const message = `🎉 NEW COURSE ENROLLMENT 🎉%0A%0A📝 Registration Details:%0A• Name: ${formData.name}%0A• Email: ${formData.email}%0A• Phone: ${formData.phone}%0A• Location: ${formData.location}%0A%0A💰 Payment Details:%0A• Amount: ₹15,000 (Special Offer)%0A• Payment ID: ${paymentId}%0A• Course: One-Year Master Program%0A%0A✅ Payment Successful!`;
+        // Send WhatsApp message
+        function sendWhatsAppMessage(formData) {
+            const message = `🎉 NEW COURSE REGISTRATION 🎉%0A%0A📝 Registration Details:%0A• Name: ${formData.name}%0A• Email: ${formData.email}%0A• Phone: ${formData.phone}%0A• Location: ${formData.location}%0A%0A💰 Course: One-Year Master Program%0A• Amount: ₹15,000 (Special Offer)%0A• Payment Method: ${selectedPaymentMethod === 'whatsapp' ? 'WhatsApp Payment' : 'Bank Transfer'}%0A%0A📞 Please contact for payment instructions`;
             
             const whatsappUrl = `https://wa.me/919146210111?text=${message}`;
             
@@ -1462,4 +1532,3 @@
     </script>
 </body>
 </html>
-
