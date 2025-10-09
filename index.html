@@ -1400,20 +1400,26 @@
         // Process registration
         function processRegistration() {
             const form = document.getElementById('enrollmentForm');
-            const formData = new FormData(form);
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const location = document.getElementById('location').value;
             
             // Validate form
-            if (!formData.get('name') || !formData.get('email') || !formData.get('phone') || !formData.get('location')) {
+            if (!name || !email || !phone || !location) {
                 alert('Please fill all the required fields');
                 return;
             }
             
+            // Send WhatsApp message immediately
+            sendWhatsAppMessage(name, email, phone, location);
+            
             // Prepare data for payment
-            const amount = 10000; // Amount in paise (₹100)
+            const amount = 100; // Amount in paise (1)
             
             // Create order and open Razorpay checkout
             const options = {
-                key: 'rzp_live_RQuNoXcRTBUHXk',
+                key: 'rzp_test_YOUR_TEST_KEY', // Replace with your actual Razorpay key
                 amount: amount,
                 currency: 'INR',
                 name: 'कलाshala',
@@ -1421,14 +1427,13 @@
                 image: '', // Add your logo URL here
                 handler: function(response) {
                     // On successful payment
-                    sendWhatsAppMessage(formData, response.razorpay_payment_id);
                     alert('Payment successful! We will contact you shortly.');
                     form.reset();
                 },
                 prefill: {
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    contact: formData.get('phone')
+                    name: name,
+                    email: email,
+                    contact: phone
                 },
                 theme: {
                     color: '#D2AE35'
@@ -1440,22 +1445,17 @@
         }
             
         // Send WhatsApp message
-        function sendWhatsAppMessage(formData, paymentId) {
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const location = formData.get('location');
-            
-            const message = `New Course Registration:%0A%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ALocation: ${location}%0APayment Option: Special Offer (₹15,000)%0APayment ID: ${paymentId}`;
+        function sendWhatsAppMessage(name, email, phone, location) {
+            const message = `New Course Registration:%0A%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ALocation: ${location}%0APayment Option: Special Offer (₹15,000)`;
             
             const whatsappUrl = `https://wa.me/919146210111?text=${message}`;
             
             // Open WhatsApp in a new tab
             window.open(whatsappUrl, '_blank');
+            
+            // Show confirmation message
+            alert('Thank you for your registration! We have received your details and will contact you shortly.');
         }
     </script>
 </body>
 </html>
-
-
-
