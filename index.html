@@ -1411,11 +1411,16 @@
                 return;
             }
             
-            // Send WhatsApp message immediately
-            sendWhatsAppMessage(name, email, phone, location);
+            // Store form data for later use
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                location: location
+            };
             
             // Prepare data for payment
-            const amount = 100; // Amount in paise (1)
+            const amount = 100; // Amount in paise (₹1)
             
             // Create order and open Razorpay checkout
             const options = {
@@ -1426,7 +1431,8 @@
                 description: 'One-Year Master Program in Handcrafted Fashion & Textile Arts - Special Offer',
                 image: '', // Add your logo URL here
                 handler: function(response) {
-                    // On successful payment
+                    // On successful payment - send WhatsApp message
+                    sendWhatsAppMessage(formData, response.razorpay_payment_id);
                     alert('Payment successful! We will contact you shortly.');
                     form.reset();
                 },
@@ -1444,17 +1450,14 @@
             rzp.open();
         }
             
-        // Send WhatsApp message
-        function sendWhatsAppMessage(name, email, phone, location) {
-            const message = `New Course Registration:%0A%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ALocation: ${location}%0APayment Option: Special Offer (₹15,000)`;
+        // Send WhatsApp message - ONLY after payment
+        function sendWhatsAppMessage(formData, paymentId) {
+            const message = `🎉 NEW COURSE ENROLLMENT 🎉%0A%0A📝 Registration Details:%0A• Name: ${formData.name}%0A• Email: ${formData.email}%0A• Phone: ${formData.phone}%0A• Location: ${formData.location}%0A%0A💰 Payment Details:%0A• Amount: ₹15,000 (Special Offer)%0A• Payment ID: ${paymentId}%0A• Course: One-Year Master Program%0A%0A✅ Payment Successful!`;
             
             const whatsappUrl = `https://wa.me/919146210111?text=${message}`;
             
             // Open WhatsApp in a new tab
             window.open(whatsappUrl, '_blank');
-            
-            // Show confirmation message
-            alert('Thank you for your registration! We have received your details and will contact you shortly.');
         }
     </script>
 </body>
